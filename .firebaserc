@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "informe-ngrx": {
+      "hosting": {
+        "informe-ng": [
+          "informe-ngrx"
+        ]
+      }
+    }
+  }
+}
