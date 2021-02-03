@@ -11,11 +11,24 @@ export class AuthService {
   ) { }
 
 
+
+  initAuthListener() {
+    this.auth.authState.subscribe( fuser => {
+      console.info(fuser);
+      console.info(fuser?.email);
+      console.info(fuser?.uid);
+    })  
+  }
+
   crearUsuario( nombre: string, email: string, password: string ) {
     return this.auth.createUserWithEmailAndPassword(email, password);    
   }
 
   login( email: string, password: string ) {
     return this.auth.signInWithEmailAndPassword(email, password);
+  }
+
+  logout() {
+    return this.auth.signOut();
   }
 }

@@ -40,9 +40,10 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link " [routerLink]="['/login']" routerLinkActive="active" >
-                <i class="menu-icon fa fa-sign-out-alt"></i>
+        <li class="nav-item cursor">
+            <a class="nav-link " (click)="logout()" routerLinkActive="active" >
+                <i *ngIf="!cargando" class="menu-icon fa fa-sign-out-alt"></i>
+                <i *ngIf="cargando" class="fa fa-spinner fa-spin fa-lg"></i>
                 <span class="menu-title">Cerrar sesión</span>
             </a>
         </li>
