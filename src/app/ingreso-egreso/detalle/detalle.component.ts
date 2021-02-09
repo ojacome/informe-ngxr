@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
 import { IngresoEgresoModel } from 'src/app/models/ingreso-egreso.model';
+import { IngresoEgresoService } from 'src/app/services/ingreso-egreso.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle',
@@ -18,7 +20,8 @@ export class DetalleComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private ingresoEgresoSvc : IngresoEgresoService
   ) { 
   }
   
@@ -35,7 +38,20 @@ export class DetalleComponent implements OnInit, OnDestroy {
     .subscribe( ({ items}) => this.ingresosEgresos = items )
   }
 
-  borrar(uid : string){    
-    console.info( uid );
+  borrar(uid : string){         
+    Swal.fire({
+      title: '¿Seguro de eliminar?',
+      text: 'No podrás recuperar la información.',      
+      showCancelButton: true,
+      confirmButtonText: `Eliminar`,      
+    }).then((result) => {
+      
+      if (result.isConfirmed) {
+
+        this.ingresoEgresoSvc.borrarIngresoEgreso( uid )
+        .then( () => Swal.fire('Eliminado!', '', 'success'))
+        .catch( error => console.info(error))
+      } 
+    })
   }
 }
