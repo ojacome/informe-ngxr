@@ -18,6 +18,8 @@ export class IngresoEgresoService {
   crearIngresoegreso( ingresoEgreso ){
     const uid = this.authService.user.uid_;
 
+    delete ingresoEgreso.uid;
+    
     return this.firestore.doc(`${uid}/ingresos-egresos`)
     .collection('items')
     .add({ ...ingresoEgreso })
@@ -30,7 +32,7 @@ export class IngresoEgresoService {
       map( snapshot => {
         return snapshot.map( doc => {
           return {
-            ui: doc.payload.doc.id,
+            uid: doc.payload.doc.id,
             ...doc.payload.doc.data() as any
           }
         })

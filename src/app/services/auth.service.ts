@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from '../app.reducer';
 import { setUser, unSetUser } from '../auth/auth.actions';
+import { unSetItems } from '../ingreso-egreso/ingreso-egreso.actions';
 import { UsuarioModel } from '../models/usuario.model';
 
 @Injectable({
@@ -44,6 +45,7 @@ export class AuthService {
         this._user = null;
         this.userSubscription.unsubscribe();
         this.store.dispatch( unSetUser() );
+        this.store.dispatch( unSetItems() );
       }
     })  
   }
