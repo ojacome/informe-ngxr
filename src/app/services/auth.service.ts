@@ -13,9 +13,12 @@ import { UsuarioModel } from '../models/usuario.model';
 export class AuthService {
 
   userSubscription: Subscription;
+  private _user: UsuarioModel;
 
 
-
+  get user() {
+    return this._user;
+  }
 
   constructor(
     private auth: AngularFireAuth,
@@ -32,13 +35,15 @@ export class AuthService {
         this.userSubscription = this.firestore.doc(`${fuser.uid}/usuario`).valueChanges()
         .subscribe( (firestoreUser: any) => {
           
-          const user = UsuarioModel.fromFirebase( firestoreUser )                    
-          this.store.dispatch( setUser({ user }) )          
+          const user = UsuarioModel.fromFirebase( firestoreUser );                    
+          this._user = user;
+          this.store.dispatch( setUser({ user }) );          
         })
       }
       else {        
+        this._user = null;
+        this.userSubscription.unsubscribe();
         this.store.dispatch( unSetUser() );
-        this.userSubscription.unsubscribe()
       }
     })  
   }
