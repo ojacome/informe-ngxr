@@ -13,7 +13,6 @@ import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { appReducers } from './app.reducer';
-import { IngresoEgresoModule } from './ingreso-egreso/ingreso-egreso.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { IngresoEgresoModule } from './ingreso-egreso/ingreso-egreso.module';
   imports: [
     BrowserModule,  
     AuthModule,    
-    IngresoEgresoModule,
     AppRoutingModule,    
     StoreModule.forRoot( appReducers ),
     StoreDevtoolsModule.instrument({

@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AppState } from '../app.reducer';
 import { setUser, unSetUser } from '../auth/auth.actions';
 import { unSetItems } from '../ingreso-egreso/ingreso-egreso.actions';
@@ -28,6 +29,11 @@ export class AuthService {
   ) { }
 
 
+  isAuth() {
+    return this.auth.authState.pipe(
+      map( fbUser => fbUser != null )
+    );
+  }
 
   initAuthListener() {
     this.auth.authState.subscribe( fuser => {      

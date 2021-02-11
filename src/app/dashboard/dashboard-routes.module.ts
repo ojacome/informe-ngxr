@@ -8,9 +8,7 @@ export const routes: Routes = [
   { 
         path: '',                 
         component: DashboardComponent,
-        children: routesDashboard,
-        // canActivate: [ AngularFireAuthGuard ],
-        // data: { authGuardPipe: redirectUnauthorizedToLogin }
+        children: routesDashboard,        
     },
 ]
 
