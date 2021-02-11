@@ -17,12 +17,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
 import { EstadisticaComponent } from './ingreso-egreso/estadistica/estadistica.component';
 import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { environment } from 'src/environments/environment';
 import { appReducers } from './app.reducer';
 import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,14 +29,12 @@ import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
     IngresoEgresoComponent,
     EstadisticaComponent,
     DetalleComponent,
-    FooterComponent,
-    SidebarComponent,
-    NavbarComponent,
     OrdenIngresoPipe
   ],
   imports: [
     BrowserModule,  
     AuthModule,
+    SharedModule,
     AppRoutingModule,
     ReactiveFormsModule,
     ChartsModule,
