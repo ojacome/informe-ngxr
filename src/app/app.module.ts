@@ -10,9 +10,9 @@ import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app.routing';
 
+import { AuthModule } from './auth/auth.module';
+
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
 import { EstadisticaComponent } from './ingreso-egreso/estadistica/estadistica.component';
@@ -27,8 +27,6 @@ import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     DashboardComponent,
     IngresoEgresoComponent,
     EstadisticaComponent,
@@ -40,6 +38,7 @@ import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
   ],
   imports: [
     BrowserModule,  
+    AuthModule,
     AppRoutingModule,
     ReactiveFormsModule,
     ChartsModule,
