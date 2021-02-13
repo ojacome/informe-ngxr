@@ -4,7 +4,8 @@ import { EstadisticaComponent } from '../ingreso-egreso/estadistica/estadistica.
 import { IngresoEgresoComponent } from '../ingreso-egreso/ingreso-egreso.component';
 
 export const routesDashboard: Routes = [
-    { path: '',                     component: EstadisticaComponent },
+    { path: 'dashboard',                     component: EstadisticaComponent },
     { path: 'ingreso-egreso',       component: IngresoEgresoComponent },
     { path: 'detalle',              component: DetalleComponent },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
 ]

@@ -9,7 +9,7 @@
                     </div>
 
                     <div class="text-wrapper">
-                        <p class="profile-name">{{ nombre }}</p>
+                        <p class="profile-name">{{ nombre | uppercase }}</p>
                         <div>
                             <small class="designation text-muted">Gerente</small>
                         </div>
@@ -19,22 +19,22 @@
             </div>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" >
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/dashboard']"  >
                 <i class="menu-icon fa fa-tachometer-alt"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/ingreso-egreso']" routerLinkActive="active" >
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/ingreso-egreso']"  >
                 <i class="menu-icon fa fa-clipboard-list"></i>
                 <span class="menu-title">Ingresos y Egresos</span>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/detalle']" routerLinkActive="active" >
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/detalle']"  >
                 <i class="menu-icon fa fa-table"></i>
                 <span class="menu-title">Detalle</span>
             </a>

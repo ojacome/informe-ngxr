@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit, OnDestroy{
     .then( credenciales => {
       
       this.store.dispatch( stopLoading() )
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/dashboard');
     } )   
     .catch( error => {
     this.store.dispatch( stopLoading() )
